@@ -1,10 +1,9 @@
-# Gatsby Material UI Starter
-
 <p align="center">
   <a href="https://www.gatsbyjs.org">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
 </p>
+<h1 align="center">Gatsby Material UI Starter</h1>
 
 This starter includes [Material UI](https://material-ui.com/) boilerplate and configuration files along with the standard Gatsby configuration files. It provides a starting point for developing Gatsby apps with Material UI.
 
@@ -12,13 +11,15 @@ View the demo app [here](https://material-ui-starter.netlify.com/).
 
 ## Features
 
-- Material UI Framework
-- Roboto Typeface (self hosted)
+- [Material UI](https://material-ui.com/)
+- [Fontsource](https://github.com/fontsource/fontsource) with Roboto font
 - SEO
-- Offline Support
-- Based on Gatsby Default Starter
+- Offline support
+- Based on the Gatsby default starter
 
-## Quick start
+Tested with Node 12.x and Gatsby CLI 2.17.0.  Please use a Node version manager such as [nodenv](https://github.com/nodenv/nodenv).
+
+## Usage
 
 1. **Create a Gatsby site.**
 
@@ -26,7 +27,7 @@ View the demo app [here](https://material-ui-starter.netlify.com/).
 
     ```sh
     # create a new Gatsby site using the Material UI starter
-    gatsby new <project-name> https://github.com/dominicabela/gatsby-starter-material-ui
+    gatsby new <project-name> https://github.com/jlyonsmith/gatsby-starter-material-ui
     ```
 
 2. **Start developing.**
