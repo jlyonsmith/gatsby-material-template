@@ -45,3 +45,8 @@ Tested with Node 12.x and Gatsby CLI 2.17.0.  Please use a Node version manager 
     NOTE: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
     Open the `<project-name>` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+
+## Resources
+
+- [Material-UI Color Tool](https://material.io/resources/color)
+- [Material-UI Theme Creator](https://bareynol.github.io/mui-theme-creator/)
