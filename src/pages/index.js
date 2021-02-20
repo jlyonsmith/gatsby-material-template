@@ -1,165 +1,95 @@
 import React from "react"
-import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import {
-  makeStyles,
-  ThemeProvider,
-  createMuiTheme,
-} from "@material-ui/core/styles"
-import purple from "@material-ui/core/colors/purple"
-import green from "@material-ui/core/colors/green"
-import Grid from "@material-ui/core/Grid"
-import Divider from "@material-ui/core/Divider"
-import List from "@material-ui/core/List"
-import ListItem from "@material-ui/core/ListItem"
-import ListItemIcon from "@material-ui/core/ListItemIcon"
-import ListItemText from "@material-ui/core/ListItemText"
-import Collapse from "@material-ui/core/Collapse"
-import StarIcon from "@material-ui/icons/Star"
-import InfoIcon from "@material-ui/icons/Info"
-import ExpandLess from "@material-ui/icons/ExpandLess"
-import ExpandMore from "@material-ui/icons/ExpandMore"
-import Done from "@material-ui/icons/Done"
-
-const theme = createMuiTheme({
-  palette: {
-    type: "light",
-    primary: {
-      main: green[800],
-    },
-    secondary: {
-      main: purple[800],
-    },
-  },
-})
+import { makeStyles } from "@material-ui/core/styles"
+import GatsbyLogo from "../components/GatsbyLogo"
+import CssBaseline from "@material-ui/core/CssBaseline"
+import Typography from "@material-ui/core/Typography"
+import IconButton from "@material-ui/core/IconButton"
+import SecurityIcon from "@material-ui/icons/Security"
+import QuestionAnswerIcon from "@material-ui/icons/QuestionAnswer"
+import { graphql, navigate } from "gatsby"
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-    backgroundColor: theme.palette.background.paper,
+    height: "100vh",
+    width: "100vw",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    backgroundColor: theme.palette.background.default,
   },
-  nested: {
-    paddingLeft: theme.spacing(4),
+  body: {
+    display: "flex",
+    flexGrow: 1,
+    flexDirection: "column",
+    justifyContent: "center",
   },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: "2.5rem",
+    paddingBottom: "2.5rem",
+  },
+  footer: { flexGrow: 0 },
+  footerText: { color: theme.palette.text.disabled },
 }))
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   const classes = useStyles()
-  const [features, setFeatures] = React.useState(true)
-  const [info, setInfo] = React.useState(true)
-
-  function handleClick(id) {
-    switch (id) {
-      case "features":
-        setFeatures(!features)
-        break
-      case "info":
-        setInfo(!info)
-        break
-      default:
-        break
-    }
-  }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Layout>
-        <SEO title="Home" />
-        <Grid container spacing={3} justify="center">
-          <Grid item xs={2}>
-            <div style={{ maxWidth: `100px`, marginBottom: `1.45rem` }}>
-              <Image />
-            </div>
-          </Grid>
-          <Grid item xs={8}>
-            <h1>Gatsby Material UI Starter</h1>
-            <h5>
-              A responsive, minimalist Gatsby starter based on the world's most
-              popular React UI framework.
-            </h5>
-          </Grid>
-        </Grid>
-        <Divider />
-        <List component="nav" className={classes.root}>
-          <ListItem
-            id="features"
-            button
-            onClick={() => handleClick("features")}
+    <div className={classes.root}>
+      <CssBaseline />
+      <SEO title="Home" />
+      <div className={classes.body}>
+        <div className={classes.row}>
+          <GatsbyLogo />
+          <Typography
+            style={{
+              fontFamily: "Days One, Helvetica, Arial, sans-serif",
+              paddingLeft: 5,
+            }}
+            variant="h2"
           >
-            <ListItemIcon>
-              <StarIcon />
-            </ListItemIcon>
-            <ListItemText primary="Features" />
-            {features ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={!features} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Material UI Framework" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Progressive Web App" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="SEO" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Offline Support" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Roboto Typeface (self hosted)" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Material-UI Theming Enabled" />
-              </ListItem>
-            </List>
-          </Collapse>
-          <ListItem button onClick={() => handleClick("info")}>
-            <ListItemIcon>
-              <InfoIcon />
-            </ListItemIcon>
-            <ListItemText primary="Info" />
-            {info ? <ExpandLess /> : <ExpandMore />}
-          </ListItem>
-          <Collapse in={!info} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Based on Gatsby Default Starter" />
-              </ListItem>
-              <ListItem button className={classes.nested}>
-                <ListItemIcon>
-                  <Done />
-                </ListItemIcon>
-                <ListItemText primary="Uses Gatsby Material UI Plugin" />
-              </ListItem>
-            </List>
-          </Collapse>
-        </List>
-      </Layout>
-    </ThemeProvider>
+            Gatsby with Material-UI
+          </Typography>
+        </div>
+        <div className={classes.row}>
+          <IconButton onClick={() => navigate("/privacy/")}>
+            <SecurityIcon fontSize="large" />
+          </IconButton>
+          <span style={{ width: "2rem" }} />
+          <IconButton onClick={() => navigate("/contact/")}>
+            <QuestionAnswerIcon fontSize="large" />
+          </IconButton>
+        </div>
+      </div>
+      <div className={classes.footer}>
+        <footer className={classes.row}>
+          <Typography variant="body2" className={classes.footerText}>
+            {`Copyright (c) ${data.site.siteMetadata.title}, ${new Date(
+              data.siteBuildMetadata.buildTime
+            ).getFullYear()}`}
+          </Typography>
+        </footer>
+      </div>
+    </div>
   )
 }
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    siteBuildMetadata {
+      buildTime
+    }
+  }
+`
 
 export default IndexPage

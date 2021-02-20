@@ -1,0 +1,14 @@
+{
+  "palette": {
+    "type": "dark",
+    "primary": {
+      "main": "#42a5f5"
+    },
+    "secondary": {
+      "main": "#ff5252"
+    }
+  },
+  "typography": {
+    "fontFamily": "\"Arimo\", \"Helvetica\", Open Sans"
+  }
+}

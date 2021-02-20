@@ -1,46 +1,58 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Material UI Starter`,
-    description: `Kick off your next, great Gatsby project with this Material UI starter. This barebones starter ships with the main Gatsby and Material UI configuration files you might need.`,
-    author: `@dominicabela`,
+    title: "Material-UI Starter",
+    description: "Simple Gatsby start using Material-UI",
+    author: "@jlyonsmith",
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-react-helmet",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
+        name: "images",
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
+        name: "pages",
+        path: `${__dirname}/src/pages`,
+      },
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "Material-UI Starter",
+        short_name: "Starter",
+        start_url: "/",
+        background_color: "#663399",
         theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        display: "minimal-ui",
+        icon: "src/images/gatsby-icon.png", // This path is relative to the root of the site.
       },
     },
     {
-      resolve: `gatsby-plugin-material-ui`,
-      // If you want to use styled components, in conjunction to Material-UI, you should:
-      // - Change the injection order
-      // - Add the plugin
+      resolve: "gatsby-plugin-material-ui",
       options: {
-        // stylesProvider: {
-        //   injectFirst: true,
-        // },
+        stylesProvider: {
+          injectFirst: true,
+        },
       },
-      // 'gatsby-plugin-styled-components',
+    },
+    "custom-mui-theme",
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        defaultLayouts: {
+          default: require.resolve("./src/components/DocLayout.js"),
+        },
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    "gatsby-plugin-offline",
   ],
 }
